@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
-</head>
-<body>
-	<div class="container my-3">
+<html layout:decorate="~{layout}">
+	<div layout:fragment="content" class="container my-3">
 		<table class="table">
 			<thead class="table-dark">
 				<tr>
@@ -27,5 +20,4 @@
 		
 		</table>
 	</div>
-</body>
 </html>
