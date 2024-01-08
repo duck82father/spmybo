@@ -15,28 +15,31 @@ import kr.or.ysedu.mybo.answer.Answer;
 import kr.or.ysedu.mybo.answer.AnswerRepository;
 import kr.or.ysedu.mybo.question.Question;
 import kr.or.ysedu.mybo.question.QuestionRepository;
+import kr.or.ysedu.mybo.question.QuestionService;
 
 @SpringBootTest
 class MyboApplicationTests {
 	
-	@Autowired
-	private QuestionRepository questionRepository;
-
+//	@Autowired
+//	private QuestionRepository questionRepository;
+//
+//  @Autowired
+//  private AnswerRepository answerRepository;
+    
     @Autowired
-    private AnswerRepository answerRepository;
+    private QuestionService questionService;
 	
-	@Test
+    @Test
 	void testJpa() {
-        Optional<Question> oq = this.questionRepository.findById(2);
-		assertTrue(oq.isPresent());
-		Question q = oq.get();
-		
-		Answer a = new Answer();
-		a.setContent("네 자동으로 생성됩니다.");
-		a.setCreateDate(LocalDateTime.now());
-		a.setQuestion(q);
-		this.answerRepository.save(a);
 	}
-	
-
+    
+//	# Service를 이용한 더미데이터(300개) 만들기     
+//	@Test
+//	void testJpa() {
+//       for (int i=0; i<=300;i++) {
+//    	   String subject = String.format("테스트데이터 입니다 [%03d]", i);
+//    	   String content = "내용 없음";
+//    	   this.questionService.create(subject, content);
+//       }
+//	}
 }
