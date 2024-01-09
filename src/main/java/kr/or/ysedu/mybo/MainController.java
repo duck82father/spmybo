@@ -12,7 +12,7 @@ public class MainController {
 	@GetMapping("/mybo")
 	@ResponseBody
 	public String index() {
-		return "indexg11g121g";
+		return "비밀을 발견하셨군요! 축하합니다. 선물은 없어요~!";
 	}
 	
 	

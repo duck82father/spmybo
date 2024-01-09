@@ -23,7 +23,8 @@ public class QuestionService {
 	public Page<Question> getList(int page){
 		List<Sort.Order> sorts = new ArrayList<>();
 		sorts.add(Sort.Order.desc("createDate"));
-		Pageable pageable = PageRequest.of(page, 10, Sort.by(sorts));
+		// PageRequest에게 '요청 페이지 넘버(0부터 시작)', '요청 페이지 수', '순서 정리 방법'을 매개변수로 전달
+		Pageable pageable = PageRequest.of(page-1, 10, Sort.by(sorts));
 		return this.questionRepository.findAll(pageable);
 	}	
 	
