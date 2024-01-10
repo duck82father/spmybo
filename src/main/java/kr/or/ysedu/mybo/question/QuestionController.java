@@ -29,16 +29,12 @@ public class QuestionController {
 	private final QuestionService questionService;
 	private final UserService userService;
 	
-//  '@RequiredArgsConstructor'가 담당하는 역할 
-//	public QuestionController (QuestionRepository questionRepository) {
-//		this.questionRepository = questionRepository;
-//	}
-	
 	@GetMapping("/list")
-	public String list(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
-		// defaultValue = 시작 페이지
-		Page<Question> paging = this.questionService.getList(page);
+	public String list(Model model, @RequestParam(value = "page", defaultValue = "1") int page,
+			@RequestParam(value = "kw", defaultValue = "") String kw) {
+		Page<Question> paging = this.questionService.getList(page, kw);
 		model.addAttribute("paging", paging);
+		model.addAttribute("kw", kw);
 		return "question_list";
 	}
 
